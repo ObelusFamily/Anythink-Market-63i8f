@@ -29,7 +29,7 @@ const Banner = ({ onItemsSearch }) => {
   return (
     <div className="banner text-white">
       <div className="container p-4 text-center">
-        <img src={logo} width={293} height={200} alt="banner" />
+        <img src={logo} height={100} alt="banner" />
         <div>
           <span id="get-part">A place to get</span>
 
