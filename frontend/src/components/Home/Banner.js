@@ -1,14 +1,61 @@
 import React from 'react';
+import agent from '../../agent';
 import logo from '../../imgs/logo.png';
 
-const Banner = () => {
+const MIN_SEARCH_CHAR_LEN = 3;
+
+const Banner = ({ onItemsSearch }) => {
+	let previousSearchTerm = '';
+
+	function handleSearch(e) {
+		let term = e.target.value;
+		if (term.length < MIN_SEARCH_CHAR_LEN) {
+			if (previousSearchTerm.length >= MIN_SEARCH_CHAR_LEN) {
+				// edge case: we crossed below the length threshold, so let's show all items
+				term = '';
+			} else {
+				return;
+			}
+		}
+
+		onItemsSearch(term, page => agent.Items.byTitleSearch(term, page), agent.Items.byTitleSearch(term));
+		previousSearchTerm = term;
+	}
+
 	return (
 		<div className='banner text-white'>
 			<div className='container p-4 text-center'>
 				<img src={logo} alt='banner' />
 				<div>
 					<span id='get-part'>A place to get</span>
-					<span> the cool stuff.</span>
+
+					<span style={{ position: 'relative', margin: '10px' }}>
+						<input
+							id='search-box'
+							type='search'
+							placeholder='What is it that you truly desire?'
+							onChange={handleSearch}
+							style={{
+								padding: '10px',
+								position: 'relative',
+								width: '350px',
+								height: '50px',
+								borderRadius: '8px',
+							}}
+						/>
+						<i
+							className='bi bi-search'
+							style={{
+								position: 'absolute',
+								right: '16px',
+								top: '-6px',
+								fontSize: '1.4rem',
+								color: '#8272C1',
+							}}
+						></i>
+					</span>
+
+					<span>the cool stuff.</span>
 				</div>
 			</div>
 		</div>

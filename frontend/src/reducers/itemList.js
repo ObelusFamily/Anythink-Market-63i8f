@@ -1,4 +1,5 @@
 import {
+	APPLY_ITEMS_TITLE_SEARCH,
 	APPLY_TAG_FILTER,
 	CHANGE_TAB,
 	HOME_PAGE_LOADED,
@@ -29,6 +30,7 @@ const reducer = (state = {}, action) => {
 					return item;
 				}),
 			};
+
 		case SET_PAGE:
 			return {
 				...state,
@@ -36,6 +38,7 @@ const reducer = (state = {}, action) => {
 				itemsCount: action.payload.itemsCount,
 				currentPage: action.page,
 			};
+
 		case APPLY_TAG_FILTER:
 			return {
 				...state,
@@ -46,6 +49,20 @@ const reducer = (state = {}, action) => {
 				tag: action.tag,
 				currentPage: 0,
 			};
+
+		case APPLY_ITEMS_TITLE_SEARCH: {
+			return {
+				...state,
+				title: action.title,
+				pager: action.pager,
+				items: action.payload.items,
+				itemsCount: action.payload.itemsCount,
+				currentPage: action.page,
+				tag: null,
+				tab: 'all',
+			};
+		}
+
 		case HOME_PAGE_LOADED:
 			return {
 				...state,
@@ -56,8 +73,10 @@ const reducer = (state = {}, action) => {
 				currentPage: 0,
 				tab: action.tab,
 			};
+
 		case HOME_PAGE_UNLOADED:
 			return {};
+
 		case CHANGE_TAB:
 			return {
 				...state,
@@ -68,6 +87,7 @@ const reducer = (state = {}, action) => {
 				currentPage: 0,
 				tag: null,
 			};
+
 		case PROFILE_PAGE_LOADED:
 		case PROFILE_FAVORITES_PAGE_LOADED:
 			return {
@@ -77,9 +97,11 @@ const reducer = (state = {}, action) => {
 				itemsCount: action.payload[1].itemsCount,
 				currentPage: 0,
 			};
+
 		case PROFILE_PAGE_UNLOADED:
 		case PROFILE_FAVORITES_PAGE_UNLOADED:
 			return {};
+
 		default:
 			return state;
 	}

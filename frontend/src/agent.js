@@ -42,6 +42,7 @@ const Items = {
 	all: page => requests.get(`/items?${limit(1000, page)}`),
 	bySeller: (seller, page) => requests.get(`/items?seller=${encode(seller)}&${limit(500, page)}`),
 	byTag: (tag, page) => requests.get(`/items?tag=${encode(tag)}&${limit(1000, page)}`),
+	byTitleSearch: (title, page) => requests.get(`/items?title=${encode(title)}&${limit(1000, page)}`),
 	del: slug => requests.del(`/items/${slug}`),
 	favorite: slug => requests.post(`/items/${slug}/favorite`),
 	favoritedBy: (seller, page) => requests.get(`/items?favorited=${encode(seller)}&${limit(500, page)}`),
