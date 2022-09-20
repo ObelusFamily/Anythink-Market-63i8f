@@ -1,8 +1,8 @@
 import {
-  ITEM_PAGE_LOADED,
-  ITEM_PAGE_UNLOADED,
   ADD_COMMENT,
   DELETE_COMMENT,
+  ITEM_PAGE_LOADED,
+  ITEM_PAGE_UNLOADED,
 } from "../constants/actionTypes";
 
 const reducer = (state = {}, action) => {

@@ -1,7 +1,7 @@
 import {
-  SETTINGS_SAVED,
-  SETTINGS_PAGE_UNLOADED,
   ASYNC_START,
+  SETTINGS_PAGE_UNLOADED,
+  SETTINGS_SAVED,
 } from "../constants/actionTypes";
 
 const reducer = (state = {}, action) => {

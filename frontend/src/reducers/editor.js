@@ -1,9 +1,9 @@
 import {
+  ADD_TAG,
+  ASYNC_START,
   EDITOR_PAGE_LOADED,
   EDITOR_PAGE_UNLOADED,
   ITEM_SUBMITTED,
-  ASYNC_START,
-  ADD_TAG,
   REMOVE_TAG,
   UPDATE_FIELD_EDITOR,
 } from "../constants/actionTypes";

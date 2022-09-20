@@ -1,6 +1,6 @@
 import React from "react";
-import agent from "../agent";
 import { connect } from "react-redux";
+import agent from "../agent";
 import { SET_PAGE } from "../constants/actionTypes";
 
 const mapDispatchToProps = (dispatch) => ({

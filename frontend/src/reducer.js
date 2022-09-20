@@ -1,13 +1,13 @@
-import item from "./reducers/item";
-import itemList from "./reducers/itemList";
-import auth from "./reducers/auth";
+import { routerReducer } from "react-router-redux";
 import { combineReducers } from "redux";
+import auth from "./reducers/auth";
 import common from "./reducers/common";
 import editor from "./reducers/editor";
 import home from "./reducers/home";
+import item from "./reducers/item";
+import itemList from "./reducers/itemList";
 import profile from "./reducers/profile";
 import settings from "./reducers/settings";
-import { routerReducer } from "react-router-redux";
 
 export default combineReducers({
   item,

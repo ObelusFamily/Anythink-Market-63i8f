@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import React from "react";
-import agent from "../../agent";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import agent from "../../agent";
 import { DELETE_ITEM } from "../../constants/actionTypes";
 
 const mapDispatchToProps = (dispatch) => ({
