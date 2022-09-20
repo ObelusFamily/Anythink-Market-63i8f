@@ -18,8 +18,8 @@ const ItemList = (props) => {
           style={{
             textAlign: "center",
             backgroundColor: "#FFFFFF40",
-            margin: "20px",
-            padding: "20px",
+            margin: "10px",
+            padding: "10px",
           }}
         >
           No items found for "
