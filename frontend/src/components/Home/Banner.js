@@ -40,7 +40,10 @@ const Banner = ({ onItemsSearch }) => {
         <img src={logo} height={300} alt="banner" />
         <div>
           <span id="get-part">
-            A place to <span onClick={handleShowSearch}>get</span>
+            A place to{" "}
+            <span id="get-part" onClick={handleShowSearch}>
+              get
+            </span>
           </span>
 
           {!showSearch && <span> </span>}
