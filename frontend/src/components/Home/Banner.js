@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import agent from "../../agent";
 import logo from "../../imgs/logo.png";
 
 const MIN_SEARCH_CHAR_LEN = 3;
 
 const Banner = ({ onItemsSearch }) => {
+  const [showSearch, setShowSearch] = useState(false);
+
   let previousSearchTerm = "";
 
   function handleSearch(e) {
@@ -26,14 +28,30 @@ const Banner = ({ onItemsSearch }) => {
     previousSearchTerm = term;
   }
 
+  function handleShowSearch() {
+    setShowSearch(true);
+  }
+
+  const displayCSS = showSearch ? "inline" : "none";
+
   return (
     <div className="banner text-white">
       <div className="container p-4 text-center">
         <img src={logo} height={300} alt="banner" />
         <div>
-          <span id="get-part">A place to get</span>
+          <span id="get-part">
+            A place to <span onClick={handleShowSearch}>get</span>
+          </span>
 
-          <span style={{ position: "relative", margin: "10px" }}>
+          {!showSearch && <span> </span>}
+
+          <span
+            style={{
+              position: "relative",
+              margin: "10px",
+              display: displayCSS,
+            }}
+          >
             <input
               id="search-box"
               type="search"
